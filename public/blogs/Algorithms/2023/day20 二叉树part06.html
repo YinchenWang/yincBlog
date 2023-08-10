@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Day20 二叉树 part06 | yincBlog</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="blog of yinc">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.e853742c.css" as="style"><link rel="preload" href="/assets/js/app.500b50cd.js" as="script"><link rel="preload" href="/assets/js/3.c9b02db4.js" as="script"><link rel="preload" href="/assets/js/1.381cc6bf.js" as="script"><link rel="preload" href="/assets/js/27.c3a50728.js" as="script"><link rel="prefetch" href="/assets/js/10.e625287c.js"><link rel="prefetch" href="/assets/js/11.e1a9af03.js"><link rel="prefetch" href="/assets/js/12.08a6d104.js"><link rel="prefetch" href="/assets/js/13.eaade64a.js"><link rel="prefetch" href="/assets/js/14.2656aa25.js"><link rel="prefetch" href="/assets/js/15.abc4348b.js"><link rel="prefetch" href="/assets/js/16.ca8cbf45.js"><link rel="prefetch" href="/assets/js/17.553cb849.js"><link rel="prefetch" href="/assets/js/18.0ba00568.js"><link rel="prefetch" href="/assets/js/19.cbf6a591.js"><link rel="prefetch" href="/assets/js/20.1b0126a2.js"><link rel="prefetch" href="/assets/js/21.b6a497de.js"><link rel="prefetch" href="/assets/js/22.f4319472.js"><link rel="prefetch" href="/assets/js/23.0c40c9b4.js"><link rel="prefetch" href="/assets/js/24.ddd632df.js"><link rel="prefetch" href="/assets/js/25.60d7be0c.js"><link rel="prefetch" href="/assets/js/26.c59dbf3a.js"><link rel="prefetch" href="/assets/js/28.6bb5c65c.js"><link rel="prefetch" href="/assets/js/29.55b413ec.js"><link rel="prefetch" href="/assets/js/30.517d5745.js"><link rel="prefetch" href="/assets/js/31.304531e0.js"><link rel="prefetch" href="/assets/js/32.dc1ea36d.js"><link rel="prefetch" href="/assets/js/33.0cb22107.js"><link rel="prefetch" href="/assets/js/34.8f0430eb.js"><link rel="prefetch" href="/assets/js/35.c2867fd0.js"><link rel="prefetch" href="/assets/js/36.e2ad9728.js"><link rel="prefetch" href="/assets/js/37.5d0d1272.js"><link rel="prefetch" href="/assets/js/4.144f8488.js"><link rel="prefetch" href="/assets/js/5.b9c9f148.js"><link rel="prefetch" href="/assets/js/6.dfabdedb.js"><link rel="prefetch" href="/assets/js/7.11ec3e97.js"><link rel="prefetch" href="/assets/js/8.721bd0a8.js"><link rel="prefetch" href="/assets/js/9.fbb3bc2b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e853742c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>yincBlog</h3> <p class="description" data-v-59e6cb88>blog of yinc</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>Yinc</span>
+          
+        <!---->
+        2023
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="yincBlog" class="logo"> <span class="site-name">yincBlog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Algorithms/" class="nav-link"><i class="undefined"></i>
+  Algorithms
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Docs
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/" class="nav-link"><i class="undefined"></i>
+  vuepress-reco
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/avatar.png" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    Yinc
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>27</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>1</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Algorithms/" class="nav-link"><i class="undefined"></i>
+  Algorithms
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Docs
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/" class="nav-link"><i class="undefined"></i>
+  vuepress-reco
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Day20 二叉树 part06</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>Yinc</span>
+          
+        <!---->
+        2023
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">Day20 二叉树 part06</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>Yinc</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>7/29/2023</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>algorithms</span></i></div></div> <div class="theme-reco-content content__default"><h1 id="day20-二叉树-part06"><a href="#day20-二叉树-part06" class="header-anchor">#</a> Day20 二叉树 part06</h1> <p><strong>二叉树的深度：</strong> 指从根节点到该节点的最长简单路径边的条数或者节点数（取决于深度从0开始还是从1开始）（通常用前序求）</p> <p><strong>二叉树的高度：</strong> 指从该节点到叶子节点的最长简单路径边的条数或者节点数（取决于高度从0开始还是从1开始）（通常用后序求）</p> <h3 id="最大二叉树-leetcode-654"><a href="#最大二叉树-leetcode-654" class="header-anchor">#</a> 最大二叉树 leetcode 654</h3> <p>题目：给定一个不重复的整数数组 <code>nums</code> 。 <strong>最大二叉树</strong> 可以用下面的算法从 <code>nums</code> 递归地构建:</p> <ol><li>创建一个根节点，其值为 <code>nums</code> 中的最大值。</li> <li>递归地在最大值 <strong>左边</strong> 的 <strong>子数组前缀上</strong> 构建左子树。</li> <li>递归地在最大值 <strong>右边</strong> 的 <strong>子数组后缀上</strong> 构建右子树。</li></ol> <p>返回 <em><code>nums</code> 构建的</em> *<strong>最大二叉树*</strong> 。</p> <p><strong>示例 1：</strong></p> <p><img src="https://assets.leetcode.com/uploads/2020/12/24/tree1.jpg" alt="img"></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：nums = [3,2,1,6,0,5]
+输出：[6,3,5,null,2,0,null,null,1]
+解释：递归调用如下所示：
+- [3,2,1,6,0,5] 中的最大值是 6 ，左边部分是 [3,2,1] ，右边部分是 [0,5] 。
+    - [3,2,1] 中的最大值是 3 ，左边部分是 [] ，右边部分是 [2,1] 。
+        - 空数组，无子节点。
+        - [2,1] 中的最大值是 2 ，左边部分是 [] ，右边部分是 [1] 。
+            - 空数组，无子节点。
+            - 只有一个元素，所以子节点是一个值为 1 的节点。
+    - [0,5] 中的最大值是 5 ，左边部分是 [0] ，右边部分是 [] 。
+        - 只有一个元素，所以子节点是一个值为 0 的节点。
+        - 空数组，无子节点。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>思路：本题与前面中序后序构造二叉树一样，注意好数组的划分即可！（仔细读题！！！）</p> <p><strong>二叉树的构造都使用前序遍历！</strong></p> <div class="language-C++ line-numbers-mode"><pre class="language-text"><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* constructMaximumBinaryTree(vector&lt;int&gt;&amp; nums) {
+        if(nums.size() == 1)    return new TreeNode(nums[0]);
+        int max = 0;
+        int index = 0;
+        for(int i = 0; i &lt; nums.size(); i++)
+        {
+            if (nums[i] &gt; max)
+            {
+                max = nums[i];
+                index = i;
+            }
+        }
+        TreeNode* node = new TreeNode(max);
+        if(index &gt; 0)
+        {
+            vector&lt;int&gt; left(nums.begin(), nums.begin() + index);
+            node -&gt; left = constructMaximumBinaryTree(left);
+        }
+        
+        if(index &lt; (nums.size() - 1))
+        {
+            vector&lt;int&gt; right(nums.begin() + index + 1, nums.end());
+            node -&gt; right = constructMaximumBinaryTree(right);
+        }
+        
+        return node;
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><h3 id="合并二叉树-leetcode-617"><a href="#合并二叉树-leetcode-617" class="header-anchor">#</a> 合并二叉树 leetcode 617</h3> <p>题目：给你两棵二叉树： <code>root1</code> 和 <code>root2</code> 。</p> <p>想象一下，当你将其中一棵覆盖到另一棵之上时，两棵树上的一些节点将会重叠（而另一些不会）。你需要将这两棵树合并成一棵新二叉树。合并的规则是：如果两个节点重叠，那么将这两个节点的值相加作为合并后节点的新值；否则，<strong>不为</strong> null 的节点将直接作为新二叉树的节点。</p> <p>返回合并后的二叉树。</p> <p><strong>注意:</strong> 合并过程必须从两个树的根节点开始。</p> <p><strong>示例 1：</strong></p> <p><img src="https://assets.leetcode.com/uploads/2021/02/05/merge.jpg" alt="img"></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]
+输出：[3,4,5,5,4,null,7]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>思路：仔细读题，该题要求重合的节点值相加成为新节点，一方为空则不为NULL的节点直接成为新节点。直接遍历两个树，然后生成新节点即可！</p> <div class="language-C++ line-numbers-mode"><pre class="language-text"><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+        if(root1 == NULL) return root2;
+        if(root2 == NULL) return root1;
+
+        TreeNode* root = new TreeNode(root1 -&gt; val + root2 -&gt; val);
+
+        root -&gt; left = mergeTrees(root1 -&gt; left, root2 -&gt; left);
+        root -&gt; right = mergeTrees(root1 -&gt; right, root2 -&gt; right);
+
+        return root;
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h3 id="二叉搜索树中的搜索-leetcode-700"><a href="#二叉搜索树中的搜索-leetcode-700" class="header-anchor">#</a> 二叉搜索树中的搜索 leetcode 700</h3> <p>题目：给定二叉搜索树（BST）的根节点 <code>root</code> 和一个整数值 <code>val</code>。</p> <p>你需要在 BST 中找到节点值等于 <code>val</code> 的节点。 返回以该节点为根的子树。 如果节点不存在，则返回 <code>null</code> 。</p> <p><strong>示例 1:</strong></p> <p><img src="https://assets.leetcode.com/uploads/2021/01/12/tree1.jpg" alt="img"></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：root = [4,2,7,1,3], val = 2
+输出：[2,1,3]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>二叉搜索树是一个有序树：</p> <ul><li>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；</li> <li>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；</li> <li>它的左、右子树也分别为二叉搜索树</li></ul> <p>思路：由于二叉搜索树的特性，所以本题实际上是让在二叉搜索树中找一个值为target的节点。当前值大于target则向左照，小于则向右找。</p> <p><strong>递归</strong></p> <div class="language-c++ line-numbers-mode"><pre class="language-text"><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        if(root == NULL ||root -&gt; val == val) return root;
+        TreeNode* res = NULL;
+        if(root -&gt; val &gt; val)
+        {
+            res = searchBST(root -&gt; left, val);
+        }
+        if(root -&gt; val &lt; val)
+        {
+            res = searchBST(root -&gt; right, val);
+        }
+        return res;
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><p><strong>迭代</strong></p> <p>二叉搜索树是有序的，所以直接根据情况向左右找就是了。</p> <div class="language-C++ line-numbers-mode"><pre class="language-text"><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        while(root != NULL)
+        {
+            if(root -&gt; val == val) return root;
+            else if(root -&gt; val &gt; val) root = root -&gt; left;
+            else root = root -&gt; right;
+        }
+        return root;
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h3 id="验证二叉搜索树-leetcode-98"><a href="#验证二叉搜索树-leetcode-98" class="header-anchor">#</a> 验证二叉搜索树 leetcode 98</h3> <p>题目：给你一个二叉树的根节点 <code>root</code> ，判断其是否是一个有效的二叉搜索树。</p> <p><strong>有效</strong> 二叉搜索树定义如下：</p> <ul><li>节点的左子树只包含 <strong>小于</strong> 当前节点的数。</li> <li>节点的右子树只包含 <strong>大于</strong> 当前节点的数。</li> <li>所有左子树和右子树自身必须也是二叉搜索树。</li></ul> <p><strong>示例 1：</strong></p> <p><img src="https://assets.leetcode.com/uploads/2020/12/01/tree1.jpg" alt="img"></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：root = [2,1,3]
+输出：true
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>思路：二叉搜索树 使用中序遍历进行验证即可。（中招了，单纯比较当前节点的左右孩子满足情况就掉陷阱了，要满足 <strong>所有</strong> 孩子）最简单方法中序遍历存储值到数组，判断数组是否单调递增）</p> <div class="language-C++ line-numbers-mode"><pre class="language-text"><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;int&gt; res;
+    void traversal(TreeNode* node)
+    {
+        if (node == NULL) return;
+
+        traversal(node -&gt; left);
+        if(node)
+        {
+            res.push_back(node -&gt; val);
+        }
+        traversal(node -&gt; right);
+    }
+
+    bool isValidBST(TreeNode* root) {
+        traversal(root);
+        for(int i = 0; i &lt; res.size() - 1; i++)
+        {
+            if(res[i] &gt;= res[i + 1]) return false;
+        }
+        return true;
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:0;" data-v-b57cc07c data-v-7dd95ae2></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.500b50cd.js" defer></script><script src="/assets/js/3.c9b02db4.js" defer></script><script src="/assets/js/1.381cc6bf.js" defer></script><script src="/assets/js/27.c3a50728.js" defer></script>
+  </body>
+</html>

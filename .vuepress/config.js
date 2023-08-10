@@ -90,8 +90,8 @@ module.exports = {
         "lastUpdated": "Last Updated",
         "author": "Yinc",
         "authorAvatar": "/avatar.png",
-        "record": "xxxx",
-        "startYear": "2017"
+        "record": "陕ICP备2023007831号-1",
+        "startYear": "2023"
     },
     "markdown": {
         "lineNumbers": true

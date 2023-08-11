@@ -1,6 +1,6 @@
 module.exports = {
     "title": "yincBlog",
-    "description": "blog of yinc",
+    "description": "blog de yinc",
     "dest": "public",
     "head": [
         [
@@ -89,7 +89,7 @@ module.exports = {
         "searchMaxSuggestions": 10,
         "lastUpdated": "Last Updated",
         "author": "Yinc",
-        "authorAvatar": "/avatar.png",
+        "authorAvatar": "/kerbal.JPEG",
         "record": "陕ICP备2023007831号-1",
         "startYear": "2023"
     },

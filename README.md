@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: Blog of yinc
-tagline: Try to get better
+heroText: Blog de yinc
+tagline: Essayer de faire mieux
 # heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',

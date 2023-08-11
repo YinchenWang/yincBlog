@@ -1,9 +1,6 @@
 #!/usr/bin/env sh
 set -e
 
-git add .
-git commit -m "update"
-git push
 npm run build
 cd public
 git init

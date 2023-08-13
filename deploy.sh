@@ -2,9 +2,6 @@
 set -e
 
 npm run build
-git add .
-git commit -m "update"
-git push
 cd public
 git init
 git add -A

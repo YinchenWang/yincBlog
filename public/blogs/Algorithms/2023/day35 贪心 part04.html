@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Day35 贪心 part04 | yincBlog</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="blog de yinc">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.e853742c.css" as="style"><link rel="preload" href="/assets/js/app.24125ee9.js" as="script"><link rel="preload" href="/assets/js/3.c9b02db4.js" as="script"><link rel="preload" href="/assets/js/1.381cc6bf.js" as="script"><link rel="preload" href="/assets/js/40.92ef331f.js" as="script"><link rel="prefetch" href="/assets/js/10.e625287c.js"><link rel="prefetch" href="/assets/js/11.e1a9af03.js"><link rel="prefetch" href="/assets/js/12.08a6d104.js"><link rel="prefetch" href="/assets/js/13.eaade64a.js"><link rel="prefetch" href="/assets/js/14.c7cbb75f.js"><link rel="prefetch" href="/assets/js/15.acff09c6.js"><link rel="prefetch" href="/assets/js/16.ad28d62a.js"><link rel="prefetch" href="/assets/js/17.7a045d27.js"><link rel="prefetch" href="/assets/js/18.0ba00568.js"><link rel="prefetch" href="/assets/js/19.a4077707.js"><link rel="prefetch" href="/assets/js/20.7417c554.js"><link rel="prefetch" href="/assets/js/21.b6a497de.js"><link rel="prefetch" href="/assets/js/22.9245cb64.js"><link rel="prefetch" href="/assets/js/23.116f35b6.js"><link rel="prefetch" href="/assets/js/24.80c93571.js"><link rel="prefetch" href="/assets/js/25.b8f1d055.js"><link rel="prefetch" href="/assets/js/26.c59dbf3a.js"><link rel="prefetch" href="/assets/js/27.c332ccd3.js"><link rel="prefetch" href="/assets/js/28.8ebbf3d1.js"><link rel="prefetch" href="/assets/js/29.2cba5414.js"><link rel="prefetch" href="/assets/js/30.28ae752f.js"><link rel="prefetch" href="/assets/js/31.304531e0.js"><link rel="prefetch" href="/assets/js/32.77e339e4.js"><link rel="prefetch" href="/assets/js/33.9958d055.js"><link rel="prefetch" href="/assets/js/34.e835030f.js"><link rel="prefetch" href="/assets/js/35.ad5d5978.js"><link rel="prefetch" href="/assets/js/36.f2bf61d2.js"><link rel="prefetch" href="/assets/js/37.3e7a7358.js"><link rel="prefetch" href="/assets/js/38.287272f5.js"><link rel="prefetch" href="/assets/js/39.b8f02824.js"><link rel="prefetch" href="/assets/js/4.144f8488.js"><link rel="prefetch" href="/assets/js/41.ca011644.js"><link rel="prefetch" href="/assets/js/42.082849d6.js"><link rel="prefetch" href="/assets/js/43.c4c19734.js"><link rel="prefetch" href="/assets/js/44.d6c84d13.js"><link rel="prefetch" href="/assets/js/5.b9c9f148.js"><link rel="prefetch" href="/assets/js/6.dfabdedb.js"><link rel="prefetch" href="/assets/js/7.11ec3e97.js"><link rel="prefetch" href="/assets/js/8.721bd0a8.js"><link rel="prefetch" href="/assets/js/9.9ee621e9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e853742c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>yincBlog</h3> <p class="description" data-v-59e6cb88>blog de yinc</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>Yinc</span>
+          
+        <!---->
+        2023
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="yincBlog" class="logo"> <span class="site-name">yincBlog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Algorithms/" class="nav-link"><i class="undefined"></i>
+  Algorithms
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Docs
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/" class="nav-link"><i class="undefined"></i>
+  vuepress-reco
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/kerbal.JPEG" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    Yinc
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>34</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>2</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Algorithms/" class="nav-link"><i class="undefined"></i>
+  Algorithms
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Docs
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/" class="nav-link"><i class="undefined"></i>
+  vuepress-reco
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Day35 贪心 part04</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>Yinc</span>
+          
+        <!---->
+        2023
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">Day35 贪心 part04</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>Yinc</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>8/15/2023</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>algorithms</span><span class="tag-item" data-v-8a445198>代码随想录</span></i></div></div> <div class="theme-reco-content content__default"><h1 id="day35-贪心-part04"><a href="#day35-贪心-part04" class="header-anchor">#</a> Day35 贪心 part04</h1> <h3 id="贪心算法理论基础"><a href="#贪心算法理论基础" class="header-anchor">#</a> 贪心算法理论基础</h3> <p>贪心的本质是选择每一阶段的局部最优，从而达到全局最优。</p> <p><strong>贪心的使用：</strong></p> <p>贪心没有固定的套路，验证能不能使用贪心最好的策略是举反例，<strong>刷题或者面试的时候，手动模拟一下感觉可以局部最优推出整体最优，而且想不到反例，那么就试一试贪心</strong></p> <p><strong>贪心的一般解题步骤：</strong></p> <ul><li>将问题分解为若干个子问题。</li> <li>找出合适的贪心策略。</li> <li>求解每一个子问题的最优解。</li> <li>将局部最优解堆叠成全局最优解。</li></ul> <h3 id="柠檬水找零和-leetcode-860"><a href="#柠檬水找零和-leetcode-860" class="header-anchor">#</a> 柠檬水找零和 leetcode 860</h3> <p>题目：在柠檬水摊上，每一杯柠檬水的售价为 <code>5</code> 美元。顾客排队购买你的产品，（按账单 <code>bills</code> 支付的顺序）一次购买一杯。</p> <p>每位顾客只买一杯柠檬水，然后向你付 <code>5</code> 美元、<code>10</code> 美元或 <code>20</code> 美元。你必须给每个顾客正确找零，也就是说净交易是每位顾客向你支付 <code>5</code> 美元。</p> <p>注意，一开始你手头没有任何零钱。</p> <p>给你一个整数数组 <code>bills</code> ，其中 <code>bills[i]</code> 是第 <code>i</code> 位顾客付的账。如果你能给每位顾客正确找零，返回 <code>true</code> ，否则返回 <code>false</code> 。</p> <p><strong>示例 1：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：bills = [5,5,5,10,20]
+输出：true
+解释：
+前 3 位顾客那里，我们按顺序收取 3 张 5 美元的钞票。
+第 4 位顾客那里，我们收取一张 10 美元的钞票，并返还 5 美元。
+第 5 位顾客那里，我们找还一张 10 美元的钞票和一张 5 美元的钞票。
+由于所有客户都得到了正确的找零，所以我们输出 true。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>思路： 由于订单金额为5，收到的钱为5，10，20. 因此每次遇到金额大于5的就哦安段当前拥有的5和10的数量能否满足找零即可。</p> <div class="language-C++ line-numbers-mode"><pre class="language-text"><code>class Solution {
+public:
+    bool lemonadeChange(vector&lt;int&gt;&amp; bills) {
+        int five = 0;
+        int ten = 0;
+        int twenty = 0;
+        for (int bill : bills)
+        {
+            if (bill == 5)
+            {
+                five++;
+            }
+            else if (bill == 10)
+            {
+                if (five &gt; 0)
+                {
+                    five--;
+                    ten++;
+                }
+                else{
+                    return false;
+                }
+            }
+            else if (bill == 20)
+            {
+                if (ten &gt; 0 &amp;&amp; five &gt; 0)
+                {
+                    ten--;
+                    five--;
+                }
+                else if (five &gt;= 3)
+                {
+                    five -= 3;
+                }
+                else return false;
+            }
+        }
+        return true;
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><h3 id="根据身高体重重建队列-leetcode-495"><a href="#根据身高体重重建队列-leetcode-495" class="header-anchor">#</a> 根据身高体重重建队列 leetcode 495</h3> <p>题目：假设有打乱顺序的一群人站成一个队列，数组 <code>people</code> 表示队列中一些人的属性（不一定按顺序）。每个 <code>people[i] = [hi, ki]</code> 表示第 <code>i</code> 个人的身高为 <code>hi</code> ，前面 <strong>正好</strong> 有 <code>ki</code> 个身高大于或等于 <code>hi</code> 的人。</p> <p>请你重新构造并返回输入数组 <code>people</code> 所表示的队列。返回的队列应该格式化为数组 <code>queue</code> ，其中 <code>queue[j] = [hj, kj]</code> 是队列中第 <code>j</code> 个人的属性（<code>queue[0]</code> 是排在队列前面的人）。</p> <p><strong>示例 1：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
+输出：[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
+解释：
+编号为 0 的人身高为 5 ，没有身高更高或者相同的人排在他前面。
+编号为 1 的人身高为 7 ，没有身高更高或者相同的人排在他前面。
+编号为 2 的人身高为 5 ，有 2 个身高更高或者相同的人排在他前面，即编号为 0 和 1 的人。
+编号为 3 的人身高为 6 ，有 1 个身高更高或者相同的人排在他前面，即编号为 1 的人。
+编号为 4 的人身高为 4 ，有 4 个身高更高或者相同的人排在他前面，即编号为 0、1、2、3 的人。
+编号为 5 的人身高为 7 ，有 1 个身高更高或者相同的人排在他前面，即编号为 1 的人。
+因此 [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] 是重新构造后的队列。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>思路：和分发糖果时类似，遇见二维贪心的时候先贪一个再贪另一个。先根据身高从大到小排序people数组，这样后序插入时不改变身高大于等于的数量，再根据K来确定插入的位置。</p> <div class="language-C++ line-numbers-mode"><pre class="language-text"><code>//使用vecotr
+class Solution {
+public:
+    static bool cmp(const vector&lt;int&gt;&amp; a, const vector&lt;int&gt;&amp; b) {
+        if (a[0] == b[0]) return a[1] &lt; b[1];
+        return a[0] &gt; b[0];
+    }
+    vector&lt;vector&lt;int&gt;&gt; reconstructQueue(vector&lt;vector&lt;int&gt;&gt;&amp; people) {
+        sort (people.begin(), people.end(), cmp);
+        vector&lt;vector&lt;int&gt;&gt; que;
+        for (int i = 0; i &lt; people.size(); i++) {
+            int position = people[i][1];
+            que.insert(que.begin() + position, people[i]);
+        }
+        return que;
+    }
+};
+//使用lsit
+class Solution {
+private:
+    static bool cmp(const vector&lt;int&gt;&amp; a, const vector&lt;int&gt;&amp; b)
+    {
+        if (a[0] == b[0]) return a[1] &lt; b[1];
+        return a[0] &gt; b[0];
+    }
+
+public:
+    vector&lt;vector&lt;int&gt;&gt; reconstructQueue(vector&lt;vector&lt;int&gt;&gt;&amp; people) {
+        sort(people.begin(), people.end(), cmp);
+        list&lt;vector&lt;int&gt;&gt; que;    //使用list，因为链表插入效率比vector高
+        for (int i = 0; i &lt; people.size(); ++i)
+        {
+            int position = people[i][1]; // 插入到下标为position的位置
+            std::list&lt;vector&lt;int&gt;&gt;::iterator it = que.begin();
+            while (position--) { // 寻找插入位置
+                it++;
+            }
+            que.insert(it, people[i]);
+        }
+        return vector&lt;vector&lt;int&gt;&gt;(que.begin(), que.end());
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br></div></div><h3 id="用最少数量的箭引爆气球-leetcode-452"><a href="#用最少数量的箭引爆气球-leetcode-452" class="header-anchor">#</a> 用最少数量的箭引爆气球 leetcode 452</h3> <p>题目：有一些球形气球贴在一堵用 XY 平面表示的墙面上。墙面上的气球记录在整数数组 <code>points</code> ，其中<code>points[i] = [xstart, xend]</code> 表示水平直径在 <code>xstart</code> 和 <code>xend</code>之间的气球。你不知道气球的确切 y 坐标。</p> <p>一支弓箭可以沿着 x 轴从不同点 <strong>完全垂直</strong> 地射出。在坐标 <code>x</code> 处射出一支箭，若有一个气球的直径的开始和结束坐标为 <code>x``start</code>，<code>x``end</code>， 且满足  <code>xstart ≤ x ≤ x``end</code>，则该气球会被 <strong>引爆</strong> 。可以射出的弓箭的数量 <strong>没有限制</strong> 。 弓箭一旦被射出之后，可以无限地前进。</p> <p>给你一个数组 <code>points</code> ，<em>返回引爆所有气球所必须射出的 <strong>最小</strong> 弓箭数</em> 。</p> <p><strong>示例 1：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：points = [[10,16],[2,8],[1,6],[7,12]]
+输出：2
+解释：气球可以用2支箭来爆破:
+-在x = 6处射出箭，击破气球[2,8]和[1,6]。
+-在x = 11处发射箭，击破气球[10,16]和[7,12]。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>思路：思路很清晰，模拟有问题。本题要注意怎么判断气球重叠！</p> <div class="language-C++ line-numbers-mode"><pre class="language-text"><code>class Solution {
+private:
+    static bool cmp(vector&lt;int&gt;&amp; a, vector&lt;int&gt;&amp; b)
+    {
+        return a[0] &lt; b[0];
+    }
+public:
+    int findMinArrowShots(vector&lt;vector&lt;int&gt;&gt;&amp; points) {
+        if (points.size() == 1) return 1;
+        sort(points.begin(), points.end(), cmp);
+        int numArrows = 1;
+        for (int i = 1; i &lt; points.size(); ++i)
+        {
+            if (points[i][0] &gt; points[i - 1][1])    numArrows++;    //右边界大于左边界，必须增加箭矢数量。
+            else
+            {
+                points[i][1] = min(points[i - 1][1], points[i][1]); //更新重叠气球的最小右边界
+            }
+        }
+        return numArrows;
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:0;" data-v-b57cc07c data-v-7dd95ae2></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.24125ee9.js" defer></script><script src="/assets/js/3.c9b02db4.js" defer></script><script src="/assets/js/1.381cc6bf.js" defer></script><script src="/assets/js/40.92ef331f.js" defer></script>
+  </body>
+</html>

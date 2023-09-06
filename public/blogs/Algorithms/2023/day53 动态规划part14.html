@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Day53 动态规划part14 | yincBlog</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="blog de yinc">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.e853742c.css" as="style"><link rel="preload" href="/assets/js/app.f033f712.js" as="script"><link rel="preload" href="/assets/js/3.c9b02db4.js" as="script"><link rel="preload" href="/assets/js/1.381cc6bf.js" as="script"><link rel="preload" href="/assets/js/56.096d9699.js" as="script"><link rel="prefetch" href="/assets/js/10.e625287c.js"><link rel="prefetch" href="/assets/js/11.2befb5ec.js"><link rel="prefetch" href="/assets/js/12.5454c881.js"><link rel="prefetch" href="/assets/js/13.eaade64a.js"><link rel="prefetch" href="/assets/js/14.7e933fe5.js"><link rel="prefetch" href="/assets/js/15.acff09c6.js"><link rel="prefetch" href="/assets/js/16.332a74a6.js"><link rel="prefetch" href="/assets/js/17.c227da26.js"><link rel="prefetch" href="/assets/js/18.520b19d8.js"><link rel="prefetch" href="/assets/js/19.a4077707.js"><link rel="prefetch" href="/assets/js/20.7417c554.js"><link rel="prefetch" href="/assets/js/21.b6a497de.js"><link rel="prefetch" href="/assets/js/22.593807cf.js"><link rel="prefetch" href="/assets/js/23.0c40c9b4.js"><link rel="prefetch" href="/assets/js/24.8a4a8de3.js"><link rel="prefetch" href="/assets/js/25.7513a4c0.js"><link rel="prefetch" href="/assets/js/26.be336ca4.js"><link rel="prefetch" href="/assets/js/27.60aab908.js"><link rel="prefetch" href="/assets/js/28.de58528b.js"><link rel="prefetch" href="/assets/js/29.55b413ec.js"><link rel="prefetch" href="/assets/js/30.16c1b888.js"><link rel="prefetch" href="/assets/js/31.5c36250a.js"><link rel="prefetch" href="/assets/js/32.dc1ea36d.js"><link rel="prefetch" href="/assets/js/33.0cb22107.js"><link rel="prefetch" href="/assets/js/34.95d9c1e5.js"><link rel="prefetch" href="/assets/js/35.ad5d5978.js"><link rel="prefetch" href="/assets/js/36.f27f6808.js"><link rel="prefetch" href="/assets/js/37.353fe786.js"><link rel="prefetch" href="/assets/js/38.9dd0d205.js"><link rel="prefetch" href="/assets/js/39.e03a1881.js"><link rel="prefetch" href="/assets/js/4.144f8488.js"><link rel="prefetch" href="/assets/js/40.820b9b95.js"><link rel="prefetch" href="/assets/js/41.282ab80f.js"><link rel="prefetch" href="/assets/js/42.6e22fb6b.js"><link rel="prefetch" href="/assets/js/43.fc79fdac.js"><link rel="prefetch" href="/assets/js/44.b64e99fe.js"><link rel="prefetch" href="/assets/js/45.ae8a9c96.js"><link rel="prefetch" href="/assets/js/46.a1bedd00.js"><link rel="prefetch" href="/assets/js/47.f1c817b2.js"><link rel="prefetch" href="/assets/js/48.d075fd98.js"><link rel="prefetch" href="/assets/js/49.f04d005a.js"><link rel="prefetch" href="/assets/js/5.b9c9f148.js"><link rel="prefetch" href="/assets/js/50.32e4c0b5.js"><link rel="prefetch" href="/assets/js/51.4a69243b.js"><link rel="prefetch" href="/assets/js/52.e4254011.js"><link rel="prefetch" href="/assets/js/53.77687b7b.js"><link rel="prefetch" href="/assets/js/54.5a800f84.js"><link rel="prefetch" href="/assets/js/55.c594ba91.js"><link rel="prefetch" href="/assets/js/57.32d69045.js"><link rel="prefetch" href="/assets/js/58.56455389.js"><link rel="prefetch" href="/assets/js/59.68b27710.js"><link rel="prefetch" href="/assets/js/6.dfabdedb.js"><link rel="prefetch" href="/assets/js/7.11ec3e97.js"><link rel="prefetch" href="/assets/js/8.721bd0a8.js"><link rel="prefetch" href="/assets/js/9.03496804.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e853742c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>yincBlog</h3> <p class="description" data-v-59e6cb88>blog de yinc</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>Yinc</span>
+          
+        <!---->
+        2023
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="yincBlog" class="logo"> <span class="site-name">yincBlog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Algorithms/" class="nav-link"><i class="undefined"></i>
+  Algorithms
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Docs
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/" class="nav-link"><i class="undefined"></i>
+  vuepress-reco
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><img src="/kerbal.JPEG" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    Yinc
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>49</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>2</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/Algorithms/" class="nav-link"><i class="undefined"></i>
+  Algorithms
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Docs
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/theme-reco/" class="nav-link"><i class="undefined"></i>
+  vuepress-reco
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Day53 动态规划part14</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>Yinc</span>
+          
+        <!---->
+        2023
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">Day53 动态规划part14</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>Yinc</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>9/6/2023</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>algorithms</span><span class="tag-item" data-v-8a445198>代码随想录</span></i></div></div> <div class="theme-reco-content content__default"><h1 id="day53-动态规划part14"><a href="#day53-动态规划part14" class="header-anchor">#</a> Day53 动态规划part14</h1> <h3 id="最长公共子序列-leetcode-1143"><a href="#最长公共子序列-leetcode-1143" class="header-anchor">#</a> 最长公共子序列 leetcode 1143</h3> <p>题目：给定两个字符串 <code>text1</code> 和 <code>text2</code>，返回这两个字符串的最长 <strong>公共子序列</strong> 的长度。如果不存在 <strong>公共子序列</strong> ，返回 <code>0</code> 。</p> <p>一个字符串的 <strong>子序列</strong> 是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串。</p> <ul><li>例如，<code>&quot;ace&quot;</code> 是 <code>&quot;abcde&quot;</code> 的子序列，但 <code>&quot;aec&quot;</code> 不是 <code>&quot;abcde&quot;</code> 的子序列。</li></ul> <p>两个字符串的 <strong>公共子序列</strong> 是这两个字符串所共同拥有的子序列。</p> <p><strong>示例 1：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：text1 = &quot;abcde&quot;, text2 = &quot;ace&quot; 
+输出：3  
+解释：最长公共子序列是 &quot;ace&quot; ，它的长度为 3 。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><strong>示例 2：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：text1 = &quot;abc&quot;, text2 = &quot;abc&quot;
+输出：3
+解释：最长公共子序列是 &quot;abc&quot; ，它的长度为 3 。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><strong>示例 3：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：text1 = &quot;abc&quot;, text2 = &quot;def&quot;
+输出：0
+解释：两个字符串没有公共子序列，返回 0 。 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><strong>提示：</strong></p> <ul><li><code>1 &lt;= text1.length, text2.length &lt;= 1000</code></li> <li><code>text1</code> 和 <code>text2</code> 仅由小写英文字符组成。</li></ul> <p>思路：</p> <ul><li><p>确定DP数组以及下标含义: [0, i-1]的序列text1 与[0,j-1]的序列text2的最长公共子序列的长度为dp[i] [j]</p></li> <li><p>确定递推公式：</p></li> <li><div class="language-C++ line-numbers-mode"><pre class="language-text"><code>  if(text1[i - 1] == text2[j - 1])   
+    dp[i] [j] =  dp[i - 1] [j - 1] + 1;
+  else
+    dp[i][j] = max(dp[i][j - 1], dp[i - 1][j]);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></li> <li><p>DP数组初始化:   dp[i] [j] = 0 //其实只要初始化第一行与第一列即可</p></li> <li><p>确定遍历顺序:    从左往右，从上往下</p></li> <li><p>打印DP数组： 用于debug</p></li> <li><img src="https://code-thinking-1253855093.file.myqcloud.com/pics/20210210150215918.jpg" style="zoom:50%;"></li></ul> <div class="language-C++ line-numbers-mode"><pre class="language-text"><code>class Solution {
+public:
+    int longestCommonSubsequence(string text1, string text2) {
+        vector&lt;vector&lt;int&gt;&gt; dp(text1.size() + 1, vector&lt;int&gt; (text2.size() + 1, 0));
+        int res = 0;
+        for (int i = 1; i &lt;= text1.size(); ++i)
+        {
+            for (int j = 1; j &lt;= text2.size(); ++j)
+            {
+                if(text1[i - 1] == text2[j - 1])   
+                    dp[i] [j] =  dp[i - 1] [j - 1] + 1;
+                else
+                    dp[i][j] = max(dp[i][j - 1], dp[i - 1][j]);
+            }
+        }
+        return dp[text1.size()][text2.size()];
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h3 id="不相交的线-leetcode-1035"><a href="#不相交的线-leetcode-1035" class="header-anchor">#</a> 不相交的线 leetcode 1035</h3> <p>题目：在两条独立的水平线上按给定的顺序写下 <code>nums1</code> 和 <code>nums2</code> 中的整数。</p> <p>现在，可以绘制一些连接两个数字 <code>nums1[i]</code> 和 <code>nums2[j]</code> 的直线，这些直线需要同时满足满足：</p> <ul><li><code>nums1[i] == nums2[j]</code></li> <li>且绘制的直线不与任何其他连线（非水平线）相交。</li></ul> <p>请注意，连线即使在端点也不能相交：每个数字只能属于一条连线。</p> <p>以这种方法绘制线条，并返回可以绘制的最大连线数。</p> <p><strong>示例 1：</strong></p> <img src="https://assets.leetcode.com/uploads/2019/04/26/142.png" alt="img" style="zoom:25%;"> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：nums1 = [1,4,2], nums2 = [1,2,4]
+输出：2
+解释：可以画出两条不交叉的线，如上图所示。 
+但无法画出第三条不相交的直线，因为从 nums1[1]=4 到 nums2[2]=4 的直线将与从 nums1[2]=2 到 nums2[1]=2 的直线相交。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><strong>示例 2：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：nums1 = [2,5,1,2,5], nums2 = [10,5,2,1,5,2]
+输出：3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>示例 3：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：nums1 = [1,3,7,1,7,5], nums2 = [1,9,2,5,1]
+输出：2
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>提示：</strong></p> <ul><li><code>1 &lt;= nums1.length, nums2.length &lt;= 500</code></li> <li><code>1 &lt;= nums1[i], nums2[j] &lt;= 2000</code></li></ul> <p>思路：秒了，和上题一样求子序列</p> <div class="language-C++ line-numbers-mode"><pre class="language-text"><code>class Solution {
+public:
+    int maxUncrossedLines(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) {
+        vector&lt;vector&lt;int&gt;&gt; dp(nums1.size() + 1, vector&lt;int&gt;(nums2.size() + 1, 0));
+        for (int i = 1; i &lt;= nums1.size(); ++i)
+        {
+            for (int j = 1; j &lt;= nums2.size(); ++j)
+            {
+                if (nums1[i - 1] == nums2[j - 1])
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                else
+                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+        return dp[nums1.size()][nums2.size()];
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h3 id="最大子数组和-leetcode-53"><a href="#最大子数组和-leetcode-53" class="header-anchor">#</a> 最大子数组和 leetcode 53</h3> <p>题目：给你一个整数数组 <code>nums</code> ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p> <p><strong>子数组</strong> 是数组中的一个连续部分。</p> <p><strong>示例 1：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：nums = [-2,1,-3,4,-1,2,1,-5,4]
+输出：6
+解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><strong>示例 2：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：nums = [1]
+输出：1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>示例 3：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>输入：nums = [5,4,-1,7,8]
+输出：23 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>提示：</strong></p> <ul><li><code>1 &lt;= nums.length &lt;= 105</code></li> <li><code>-104 &lt;= nums[i] &lt;= 104</code></li></ul> <p>思路：</p> <ul><li><p>确定DP数组以及下标含义：以nums[i]为结尾的最大连续子序列和为dp[i]</p></li> <li><p>确定递推公式：dp[i] = max(dp[i - 1] + nums[i], nums[i]); //前面和小于nu ms[i]时则重新开始计算</p></li> <li><p>DP数组初始化:   dp[0] = nums[0]</p></li> <li><p>确定遍历顺序:    从前往后</p></li> <li><p>打印DP数组： 用于debug</p></li></ul> <div class="language-C++ line-numbers-mode"><pre class="language-text"><code>class Solution {
+public:
+    int maxSubArray(vector&lt;int&gt;&amp; nums) {
+       vector&lt;int&gt; dp(nums.size());
+       dp[0] = nums[0];
+       int result= dp[0];
+       for (int i = 1; i &lt; nums.size(); ++i)
+       {
+           dp[i] = max(nums[i], dp[i - 1] + nums[i]);
+           if (result &lt; dp[i]) result = dp[i];
+       }
+       return result;
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:0;" data-v-b57cc07c data-v-7dd95ae2></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.f033f712.js" defer></script><script src="/assets/js/3.c9b02db4.js" defer></script><script src="/assets/js/1.381cc6bf.js" defer></script><script src="/assets/js/56.096d9699.js" defer></script>
+  </body>
+</html>

@@ -12,3 +12,7 @@ git remote add origin root@121.36.111.221:/~/projet.git
 git push -f root@121.36.111.221:/~/projet.git master
 cd -
 
+git add .
+git commit -m "update"
+git push
+
